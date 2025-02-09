@@ -1,5 +1,3 @@
-"use client";
-
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import css from "../assets/css-3.png";
@@ -37,7 +35,7 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-4 rounded-xl shadow-sm bg-gray-200 dark:bg-my-bg transition-transform hover:scale-95"
+              className="flex flex-col items-center p-4 rounded-xl shadow-sm bg-gray-200 dark:bg-my-bg transition-transform hover:scale-105 border"
             >
               {/* Icon */}
               <Image
@@ -53,7 +51,7 @@ const Skills = () => {
               </h3>
               {/* Progress Bar */}
               <Progress value={skill.progress} className="w-full" />
-              <span className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              <span className="text-sm text-my-light dark:text-my-dark mt-2">
                 {skill.progress}%
               </span>
             </div>

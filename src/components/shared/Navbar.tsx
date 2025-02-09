@@ -14,6 +14,7 @@ const Navbar = () => {
     { label: "Blogs", href: "/blogs" },
     { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
+    { label: "Dashboard", href: "/dashboard" },
   ];
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const Navbar = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`relative text-sm font-medium transition-all duration-300 ${
+                    className={`relative text-lg font-medium transition-all duration-300 ${
                       pathname === link.href
                         ? "text-blue-600 dark:text-blue-400"
                         : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"

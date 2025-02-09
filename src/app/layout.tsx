@@ -1,5 +1,3 @@
-import Footer from "@/components/shared/Footer";
-import Navbar from "@/components/shared/Navbar";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -31,13 +29,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="min-h-screen max-w-screen-2xl mx-auto px-2">
-            {children}
-          </main>
-          <footer className="max-w-screen-2xl mx-auto">
-            <Footer />
-          </footer>
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>
