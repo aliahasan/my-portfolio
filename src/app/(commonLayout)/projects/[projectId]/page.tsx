@@ -4,15 +4,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-type ProjectDetailsProps = {
-  params: { projectId: string };
-};
-
-const ProjectDetailsPage = async ({ params }: ProjectDetailsProps) => {
-  const { projectId } = params;
+const ProjectDetailsPage = async ({
+  params,
+}: {
+  params: Promise<{ projectId: string }>;
+}) => {
+  const { projectId } = await params;
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/project/project/${projectId}`
   );
+
   const data = await res.json();
   const project = data?.data;
 

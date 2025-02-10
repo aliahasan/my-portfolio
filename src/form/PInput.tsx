@@ -36,7 +36,7 @@ const PInput = ({ type, name, label, disabled, placeholder }: TInputProps) => {
               disabled={disabled}
               placeholder={placeholder}
               value={field.value || ""}
-              className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 transition-colors disabled:bg-gray-200 disabled:text-gray-500"
+              className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 transition-colors disabled:bg-gray-200 disabled:text-gray-500"
             />
           </FormControl>
           {fieldState?.error?.message && (

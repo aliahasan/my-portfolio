@@ -13,9 +13,6 @@ const ProjectsPage = async () => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/project/projects`,
     {
       cache: "no-store",
-      next: {
-        revalidate: 20,
-      },
     }
   );
   const projectsData = await response.json();

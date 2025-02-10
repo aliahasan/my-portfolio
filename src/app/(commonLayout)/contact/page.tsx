@@ -43,8 +43,8 @@ const ContactPage = () => {
     <div className="py-20 flex items-center justify-center p-4  transition-colors duration-300">
       <Card className="w-full max-w-lg shadow-sm rounded-lg bg-[#F3F4F6]  transition-colors duration-300 dark:bg-my-bg">
         <CardContent className="p-6">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 text-center">
-            Contact Us
+          <h2 className="text-2xl font-semibold text-black dark:text-white text-center">
+            Contact with Me
           </h2>
           <PForm onSubmit={handleSubmit}>
             <PInput
