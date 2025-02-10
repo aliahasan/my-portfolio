@@ -9,12 +9,15 @@ export const metadata: Metadata = {
 };
 
 const ProjectsPage = async () => {
-  const response = await fetch(`${process.env.base_url}/project/projects`, {
-    cache: "no-store",
-    next: {
-      revalidate: 20,
-    },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/project/projects`,
+    {
+      cache: "no-store",
+      next: {
+        revalidate: 20,
+      },
+    }
+  );
   const projectsData = await response.json();
 
   return (

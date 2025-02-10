@@ -19,8 +19,15 @@ const PInput = ({ type, name, label, disabled, placeholder }: TInputProps) => {
       name={name}
       control={control}
       render={({ field, fieldState }) => (
-        <FormItem>
-          {label && <Label htmlFor={name}>{label}</Label>}
+        <FormItem className="space-y-2">
+          {label && (
+            <Label
+              htmlFor={name}
+              className="text-sm font-semibold text-my-light dark:text-my-dark"
+            >
+              {label}
+            </Label>
+          )}
           <FormControl>
             <Input
               {...field}
@@ -29,9 +36,14 @@ const PInput = ({ type, name, label, disabled, placeholder }: TInputProps) => {
               disabled={disabled}
               placeholder={placeholder}
               value={field.value || ""}
+              className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 transition-colors disabled:bg-gray-200 disabled:text-gray-500"
             />
           </FormControl>
-          <FormMessage>{fieldState.error?.message}</FormMessage>
+          {fieldState?.error?.message && (
+            <FormMessage className="text-sm text-red-500">
+              {fieldState.error.message}
+            </FormMessage>
+          )}
         </FormItem>
       )}
     />

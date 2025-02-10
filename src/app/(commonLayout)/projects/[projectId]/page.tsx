@@ -11,7 +11,7 @@ type ProjectDetailsProps = {
 const ProjectDetailsPage = async ({ params }: ProjectDetailsProps) => {
   const { projectId } = params;
   const res = await fetch(
-    `${process.env.base_url}/project/project/${projectId}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/project/project/${projectId}`
   );
   const data = await res.json();
   const project = data?.data;
