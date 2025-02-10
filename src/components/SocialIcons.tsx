@@ -1,21 +1,18 @@
-import Image from "next/image";
-import facebook from "../assets/facebook.png";
-import github from "../assets/github.png";
-import linkedIn from "../assets/linkedin.png";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 const icons = [
   {
     name: "linkedin",
-    src: linkedIn,
+    src: <FaLinkedin />,
     href: "https://www.linkedin.com/in/ali-ahasan-nabin-47861122a",
   },
   {
     name: "github",
-    src: github,
+    src: <FaGithub />,
     href: "https://github.com/aliahasan",
   },
   {
     name: "facebook",
-    src: facebook,
+    src: <FaFacebook />,
     href: "https://www.facebook.com/aliahasan.nabin",
   },
 ];
@@ -24,14 +21,8 @@ const SocialIcons = () => {
     <div className="flex gap-x-4 justify-center  md:justify-start">
       {icons.map((icon) => (
         <div key={icon.name}>
-          <a href={icon.href}>
-            <Image
-              key={icon.name}
-              src={icon.src}
-              alt={icon.name}
-              width={45}
-              height={45}
-            />
+          <a href={icon.href} className="text-3xl">
+            {icon.src}
           </a>
         </div>
       ))}

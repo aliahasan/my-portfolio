@@ -12,7 +12,7 @@ const myProjects = [
     github_url: "https://github.com/aliahasan/Gym-wave-client",
     description:
       "A modern gym management and fitness tracking application. Users can book workout sessions, track progress, and explore fitness plans.",
-    tech_stack: [
+    technologies: [
       "React.js",
       "Tailwind CSS",
       "Redux",
@@ -29,7 +29,13 @@ const myProjects = [
     github_url: "https://github.com/aliahasan/react-dragon-news-auth",
     description:
       "A fully responsive newspaper website where users can read the latest news, filter articles by category, and stay updated on global events.",
-    tech_stack: ["Next.js", "Tailwind CSS", "ShadCN", "MongoDB", "Express.js"],
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "ShadCN",
+      "MongoDB",
+      "Express.js",
+    ],
   },
   {
     id: 3,
@@ -39,7 +45,7 @@ const myProjects = [
     github_url: "https://github.com/aliahasan/car-shop-frontend",
     description:
       "An online car dealership platform where users can browse, compare, and purchase cars. Includes advanced filtering, user authentication, and a secure checkout system.",
-    tech_stack: [
+    technologies: [
       "React.js",
       "Tailwind CSS",
       "Redux",
@@ -56,7 +62,7 @@ const myProjects = [
     github_url: "https://github.com/aliahasan/car-shop-frontend",
     description:
       "An online car dealership platform where users can browse, compare, and purchase cars. Includes advanced filtering, user authentication, and a secure checkout system.",
-    tech_stack: [
+    technologies: [
       "React.js",
       "Tailwind CSS",
       "Redux",
@@ -77,7 +83,7 @@ const FeaturedProject = () => {
         {myProjects.map((project) => (
           <Card
             key={project.id}
-            className="bg-gray-50 dark:bg-my-bg text-my-light rounded-lg shadow-lg overflow-hidden"
+            className="bg-[#F3F4F6] dark:bg-my-bg text-my-light rounded-lg shadow-lg overflow-hidden"
           >
             <div className="relative w-full h-48">
               <Image
@@ -93,7 +99,7 @@ const FeaturedProject = () => {
               </h2>
               {/* <p className="text-gray-300 mb-4">{project.description}</p> */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech_stack.map((tech, index) => (
+                {project.technologies.map((tech, index) => (
                   <span
                     key={index}
                     className="bg-my-bg dark:bg-gray-50 dark:text-black text-gray-300 px-3 py-1 rounded-full text-sm"
