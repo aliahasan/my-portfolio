@@ -31,7 +31,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           {project?.technologies?.map((tech: string, index: number) => (
             <span
               key={index}
-              className="bg-gray-300 dark:bg-gray-700 text-sm px-2 py-1 rounded-md"
+              className="bg-gray-300 dark:bg-my-light text-sm px-2 py-1 rounded-md"
             >
               {tech}
             </span>

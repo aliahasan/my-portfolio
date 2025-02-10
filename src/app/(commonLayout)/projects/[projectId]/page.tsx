@@ -23,15 +23,15 @@ const ProjectDetailsPage = async ({ params }: ProjectDetailsProps) => {
   }
 
   return (
-    <div className="container mx-auto px-6 py-10">
+    <div className="py-5">
       {/* Hero Section - Project Image */}
-      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+      <div className="relative w-full h-[50vh] sm:h-[400px] md:h-[75vh] rounded-md overflow-hidden">
         <Image
           src={project.image_url}
           alt={project.name}
           layout="fill"
           objectFit="cover"
-          className="rounded-lg"
+          className="rounded-lg object-cover bg-center"
         />
       </div>
 
@@ -58,7 +58,7 @@ const ProjectDetailsPage = async ({ params }: ProjectDetailsProps) => {
 
         {/* Project Links */}
         <div className="flex gap-4 mt-4">
-          <Button asChild variant="default" className="flex items-center gap-2">
+          <Button asChild className="flex items-center gap-2 bg-my-bg">
             <a
               href={project.live_url}
               target="_blank"
@@ -79,16 +79,16 @@ const ProjectDetailsPage = async ({ params }: ProjectDetailsProps) => {
         </div>
 
         {/* Additional Project Info */}
-        <Card className="mt-6">
-          <CardContent className="p-4">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+        <Card className="mt-6 dark:bg-my-bg">
+          <CardContent className="py-5">
+            <p className="text-sm text-my-light dark:text-my-dark">
               <strong>Project ID:</strong> {project._id}
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-my-light dark:text-my-dark">
               <strong>Created At:</strong>{" "}
               {new Date(project.createdAt).toLocaleDateString()}
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-my-light dark:text-my-dark">
               <strong>Last Updated:</strong>{" "}
               {new Date(project.updatedAt).toLocaleDateString()}
             </p>

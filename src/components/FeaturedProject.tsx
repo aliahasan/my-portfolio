@@ -94,15 +94,15 @@ const FeaturedProject = () => {
               />
             </div>
             <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-black dark:text-my-dark mb-2">
+              <h2 className="text-2xl font-semibold text-black dark:text-white mb-2">
                 {project.name}
               </h2>
-              {/* <p className="text-gray-300 mb-4">{project.description}</p> */}
+
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, index) => (
                   <span
                     key={index}
-                    className="bg-my-bg dark:bg-gray-50 dark:text-black text-gray-300 px-3 py-1 rounded-full text-sm"
+                    className=" bg-gray-300 text-sm px-2 py-1 rounded-md"
                   >
                     {tech}
                   </span>
