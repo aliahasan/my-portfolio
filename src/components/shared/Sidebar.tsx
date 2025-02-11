@@ -3,6 +3,7 @@ import Link from "next/link";
 const Sidebar = () => {
   const links = [
     { label: "Home", href: "/" },
+    { label: "Inbox", href: "/dashboard/all-messages" },
     { label: "Add Blog", href: "/dashboard/add-blog" },
     { label: "All Blogs", href: "/dashboard/all-blogs" },
     { label: "Add Projects", href: "/dashboard/add-project" },

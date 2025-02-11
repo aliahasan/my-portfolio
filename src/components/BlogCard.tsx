@@ -29,7 +29,10 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
           {blog.content.length > 100
             ? blog.content.slice(0, 60) + "..."
             : blog.content}
-          <Link href={`/blogs/${blog._id}`} className="text-teal-600 ml-1">
+          <Link
+            href={`/blogs/${blog._id}`}
+            className="text-blue-600 ml-1 underline underline-offset-2 "
+          >
             Read More
           </Link>
         </p>
