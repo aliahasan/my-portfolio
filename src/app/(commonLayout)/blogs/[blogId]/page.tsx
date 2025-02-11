@@ -8,6 +8,22 @@ import {
 import { TBlog } from "@/types";
 import Image from "next/image";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ blogId: string }>;
+}) {
+  const { blogId } = await params;
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${blogId}`);
+  const data = await res.json();
+  const blog: TBlog = data?.data;
+  return {
+    title: blog?.title,
+    description: blog?.content,
+  };
+}
+
 export const generateStaticParams = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/blogs`);
   const data = await res.json();
@@ -31,19 +47,17 @@ const BlogDetails = async ({
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl">
       <Card className="dark:bg-my-bg dark:text-white shadow-sm rounded-lg">
-        {/* Header Section */}
         <CardHeader className="flex flex-row items-center space-x-4">
-          {/* Profile Picture (Replace with actual author image if available) */}
           <div className="w-12 h-12 rounded-full overflow-hidden">
             <Image
-              src="https://i.ibb.co.com/xz3wGRw/1702104881729-01-1-1.jpg" // Replace with actual author image
+              src="https://i.ibb.co.com/xz3wGRw/1702104881729-01-1-1.jpg"
               alt="Author"
               width={48}
               height={48}
               className="object-cover"
             />
           </div>
-          {/* Author Name and Post Time */}
+
           <div>
             <CardTitle className="text-lg font-semibold">
               Ali Ahasan Nabin
@@ -60,7 +74,6 @@ const BlogDetails = async ({
           </div>
         </CardHeader>
 
-        {/* Blog Image */}
         <div className="relative w-full h-96">
           <Image
             src={blog.image}

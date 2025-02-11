@@ -3,16 +3,24 @@ import { Controller, useFormContext } from "react-hook-form";
 
 type PTextareaProps = {
   name: string;
-  placeholder: string;
+  placeholder?: string;
   disabled?: boolean;
   label?: string;
+  defaultValue?: string;
 };
 
-const PTextarea = ({ name, placeholder, disabled, label }: PTextareaProps) => {
+const PTextarea = ({
+  name,
+  placeholder,
+  disabled,
+  label,
+  defaultValue,
+}: PTextareaProps) => {
   const { control } = useFormContext();
   return (
     <Controller
       name={name}
+      defaultValue={defaultValue || ""}
       control={control}
       render={({ field, fieldState }) => (
         <div className="mb-4">

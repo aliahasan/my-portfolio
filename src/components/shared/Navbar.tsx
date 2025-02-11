@@ -1,6 +1,7 @@
 "use client";
 import { Menu, X } from "lucide-react";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -73,6 +74,15 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
 
           {/* Toggle Theme, Login/Logout Button, and Mobile Menu Button */}
           <div className="flex items-center gap-4">
+            {session?.user && (
+              <Image
+                src={session?.user?.image as string}
+                width={40}
+                height={20}
+                alt={session?.user?.name as string}
+                className="rounded-full"
+              />
+            )}
             <ToggleTheme />
 
             {/* Show Login/Logout based on session */}

@@ -10,19 +10,21 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="text-white p-6">
-      <nav className="flex flex-col gap-4">
-        {links.map((link) => (
-          <Link href={link.href} key={link.label}>
-            <p
-              className="p-3 text-lg font-medium bg-gray-200 dark:bg-my-bg text-my-light dark:text-my-dark rounded-md cursor-pointer 
+    <div>
+      <div className="text-white p-6">
+        <nav className="flex flex-col gap-4">
+          {links.map((link) => (
+            <Link href={link.href} key={link.label}>
+              <p
+                className="p-3 text-lg font-medium bg-gray-200 dark:bg-my-bg text-my-light dark:text-my-dark rounded-md cursor-pointer 
                 transition duration-300"
-            >
-              {link.label}
-            </p>
-          </Link>
-        ))}
-      </nav>
+              >
+                {link.label}
+              </p>
+            </Link>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 };

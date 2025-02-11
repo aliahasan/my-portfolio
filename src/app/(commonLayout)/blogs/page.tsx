@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 // Corrected: Use `metadata` instead of `metaData`
 export const metadata: Metadata = {
-  title: "Blogs",
+  title: "Blogs | Portfolio",
   description:
     "Check out the latest blogs on my portfolio website. Explore quantum computing, programming, and more.",
 };

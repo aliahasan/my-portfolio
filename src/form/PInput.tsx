@@ -9,15 +9,26 @@ type TInputProps = {
   label?: string;
   disabled?: boolean;
   placeholder?: string;
+  defaultValue?: string;
+  required?: boolean;
 };
 
-const PInput = ({ type, name, label, disabled, placeholder }: TInputProps) => {
+const PInput = ({
+  type,
+  name,
+  label,
+  disabled,
+  placeholder,
+  defaultValue,
+  required,
+}: TInputProps) => {
   const { control } = useFormContext();
 
   return (
     <Controller
       name={name}
       control={control}
+      defaultValue={defaultValue || ""}
       render={({ field, fieldState }) => (
         <FormItem className="space-y-2">
           {label && (
@@ -32,6 +43,7 @@ const PInput = ({ type, name, label, disabled, placeholder }: TInputProps) => {
             <Input
               {...field}
               type={type}
+              required={required}
               id={name}
               disabled={disabled}
               placeholder={placeholder}

@@ -16,7 +16,7 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
         <div>
           <ToggleTheme />
           <button
-            className="z-50 lg:hidden text-white pl-4"
+            className="z-50 lg:hidden text-black dark:text-white pl-4"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

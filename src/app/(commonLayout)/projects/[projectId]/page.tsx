@@ -1,8 +1,27 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { TProject } from "@/types";
 import Image from "next/image";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ projectId: string }>;
+}) {
+  const { projectId } = await params;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/project/project/${projectId}`
+  );
+  const data = await res.json();
+  const project: TProject = data?.data;
+  return {
+    title: project?.name,
+    description: project?.description,
+  };
+}
 
 const ProjectDetailsPage = async ({
   params,

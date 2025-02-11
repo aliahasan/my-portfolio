@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ali Ahasan Nabin",
+  title: "Home | Portfolio",
   description: "My portfolio website",
 };
 

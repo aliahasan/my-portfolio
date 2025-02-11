@@ -4,7 +4,7 @@ import { TProject } from "@/types";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Project | My Portfolio",
+  title: "Projects | Portfolio",
   description: "Explore my latest projects built with modern technologies.",
 };
 
