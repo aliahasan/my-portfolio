@@ -59,7 +59,10 @@ const ProjectDetailsPage = async ({
 
         {/* Project Links */}
         <div className="flex gap-4 mt-4">
-          <Button asChild className="flex items-center gap-2 bg-my-bg">
+          <Button
+            asChild
+            className="flex items-center gap-2 bg-my-bg dark:bg-white"
+          >
             <a
               href={project.live_url}
               target="_blank"

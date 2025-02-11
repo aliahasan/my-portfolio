@@ -1,11 +1,20 @@
 "use client";
 import { Menu, X } from "lucide-react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ToggleTheme } from "./ToggleTheme";
 
-const Navbar = () => {
+type UserProps = {
+  user?: {
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    image?: string | null | undefined;
+  };
+};
+
+const Navbar = ({ session }: { session: UserProps | null }) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -14,8 +23,12 @@ const Navbar = () => {
     { label: "Blogs", href: "/blogs" },
     { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
-    { label: "Dashboard", href: "/dashboard" },
   ];
+
+  // Add Dashboard link only if the user is logged in
+  if (session?.user) {
+    links.push({ label: "Dashboard", href: "/dashboard" });
+  }
 
   useEffect(() => {
     setIsOpen(false);
@@ -58,12 +71,32 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Toggle Theme and Mobile Menu Button */}
-          <div className="flex items-center">
+          {/* Toggle Theme, Login/Logout Button, and Mobile Menu Button */}
+          <div className="flex items-center gap-4">
             <ToggleTheme />
+
+            {/* Show Login/Logout based on session */}
+            <div className="hidden md:block">
+              {session?.user ? (
+                <button
+                  onClick={() => signOut()}
+                  className="px-4 py-2 bg-gray-200 shadow-sm rounded-lg text-black "
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link href="/login">
+                  <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                    Login
+                  </button>
+                </Link>
+              )}
+            </div>
+
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="ml-4 p-2 transition-all hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-lg md:hidden"
+              className="ml-2 p-2 transition-all hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-lg md:hidden"
             >
               {isOpen ? (
                 <X className="h-6 w-6 text-gray-900 dark:text-white" />
@@ -87,13 +120,29 @@ const Navbar = () => {
             href={link.href}
             className={`flex items-center justify-center rounded px-4 py-3 mt-2 text-sm font-medium transition-colors duration-300 ${
               pathname === link.href
-                ? " underline underline-offset-4"
+                ? "underline underline-offset-4"
                 : "text-my-light dark:text-my-dark"
             }`}
           >
             {link.label}
           </Link>
         ))}
+        <div className=" md:hidden text-center">
+          {session?.user ? (
+            <button
+              onClick={() => signOut()}
+              className="px-4 py-2 bg-gray-100 shadow-sm rounded-lg text-black "
+            >
+              Logout
+            </button>
+          ) : (
+            <Link href="/login">
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                Login
+              </button>
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );
