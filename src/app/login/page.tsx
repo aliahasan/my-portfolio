@@ -93,7 +93,8 @@ const LoginPage = () => {
               <Button
                 onClick={() =>
                   signIn("google", {
-                    callbackUrl: "/dashboard",
+                    callbackUrl:
+                      "https://my-portfolio-weld-omega-69.vercel.app/dashboard",
                   })
                 }
                 variant="default"
@@ -107,7 +108,8 @@ const LoginPage = () => {
               <Button
                 onClick={() =>
                   signIn("github", {
-                    callbackUrl: "/dashboard",
+                    callbackUrl:
+                      "https://my-portfolio-weld-omega-69.vercel.app/dashboard",
                   })
                 }
                 variant="default"

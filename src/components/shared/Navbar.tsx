@@ -21,8 +21,8 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
 
   const links = [
     { label: "Home", href: "/" },
-    { label: "Blogs", href: "/blogs" },
     { label: "Projects", href: "/projects" },
+    { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -76,7 +76,10 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
           <div className="flex items-center gap-4">
             {session?.user && (
               <Image
-                src={session?.user?.image as string}
+                src={
+                  (session?.user?.image as string) ||
+                  "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"
+                }
                 width={40}
                 height={20}
                 alt={"name"}

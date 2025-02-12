@@ -1,50 +1,20 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { useState } from "react";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const myProjects = [
   {
     id: 1,
-    name: "Gym Wave",
-    image_url: "https://i.ibb.co/4nnk04VM/Screenshot-4.png",
-    live_url: "https://gym-wave-client.vercel.app",
-    github_url: "https://github.com/aliahasan/Gym-wave-client",
-    description:
-      "A modern gym management and fitness tracking application. Users can book workout sessions, track progress, and explore fitness plans.",
-    technologies: [
-      "React.js",
-      "Tailwind CSS",
-      "Redux",
-      "ShadCN",
-      "MongoDB",
-      "Express.js",
-    ],
-  },
-  {
-    id: 2,
-    name: "The Dragon News",
-    image_url: "https://i.ibb.co.com/r2gGDnZj/Screenshot-3.png",
-    live_url: "https://the-dragon-news-mu.vercel.app",
-    github_url: "https://github.com/aliahasan/react-dragon-news-auth",
-    description:
-      "A fully responsive newspaper website where users can read the latest news, filter articles by category, and stay updated on global events.",
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "ShadCN",
-      "MongoDB",
-      "Express.js",
-    ],
-  },
-  {
-    id: 3,
     name: "RideHaven",
     image_url: "https://i.ibb.co.com/5Ny4sw7/Screenshot-2.png",
     live_url: "https://car-shop-olive.vercel.app",
     github_url: "https://github.com/aliahasan/car-shop-frontend",
     description:
-      "An online car dealership platform where users can browse, compare, and purchase cars. Includes advanced filtering, user authentication, and a secure checkout system.",
+      "RideHaven is a comprehensive online car dealership platform designed to provide users with a seamless car-buying experience. Users can browse, compare, and purchase cars with ease. The platform includes advanced filtering options to help users find their perfect vehicle based on make, model, price range, and more. " +
+      "I implemented **Shurjopay**, a secure payment gateway, to handle transactions efficiently. Users can purchase cars directly through the platform, with real-time payment confirmation. " +
+      "The platform also features a robust order management system where users can view their **order list**, track their **order status**, and **cancel orders** if needed. Additionally, RideHaven includes user authentication, a secure checkout system, and an admin dashboard for managing inventory and orders.",
     technologies: [
       "React.js",
       "Tailwind CSS",
@@ -52,84 +22,97 @@ const myProjects = [
       "ShadCN",
       "MongoDB",
       "Express.js",
-    ],
-  },
-  {
-    id: 4,
-    name: "RideHaven",
-    image_url: "https://i.ibb.co.com/5Ny4sw7/Screenshot-2.png",
-    live_url: "https://car-shop-olive.vercel.app",
-    github_url: "https://github.com/aliahasan/car-shop-frontend",
-    description:
-      "An online car dealership platform where users can browse, compare, and purchase cars. Includes advanced filtering, user authentication, and a secure checkout system.",
-    technologies: [
-      "React.js",
-      "Tailwind CSS",
-      "Redux",
-      "ShadCN",
-      "MongoDB",
-      "Express.js",
+      "Shurjopay",
     ],
   },
 ];
 
 const FeaturedProject = () => {
-  return (
-    <div className=" mx-auto  py-12">
-      <h1 className="text-4xl text-black dark:text-white text font-bold text-center  mb-12">
-        Featured Projects
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {myProjects.map((project) => (
-          <Card
-            key={project.id}
-            className="bg-[#F3F4F6] dark:bg-my-bg text-my-light rounded-lg shadow-lg overflow-hidden"
-          >
-            <div className="relative w-full h-48">
-              <Image
-                src={project.image_url}
-                alt={project.name}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-black dark:text-white mb-2">
-                {project.name}
-              </h2>
+  const [showFullDesc, setShowFullDesc] = useState(false);
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className=" bg-gray-300 text-sm px-2 py-1 rounded-md"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex space-x-4">
-                <a
-                  href={project.live_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+  return (
+    <div className="mx-auto py-10 ">
+      <h1 className="text-4xl text-black dark:text-white font-bold text-center mb-10">
+        Featured Project
+      </h1>
+      {myProjects.map((project) => (
+        <div
+          key={project.id}
+          className="flex flex-col lg:flex-row items-center lg:items-start gap-8 bg-[#F3F4F6] dark:bg-my-bg p-6 rounded-lg shadow-sm"
+        >
+          {/* Project Image */}
+          <div className="w-full lg:w-1/2 h-80 relative rounded-lg overflow-hidden">
+            <Image
+              src={project.image_url}
+              alt={project.name}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+          </div>
+
+          {/* Project Details */}
+          <div className="w-full lg:w-1/2 space-y-6">
+            <h2 className="text-2xl font-semibold text-black dark:text-white">
+              {project.name}
+            </h2>
+
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="bg-gray-300 dark:bg-gray-500 text-sm px-2 py-1 rounded-md"
                 >
-                  Live Demo
-                </a>
-                <a
-                  href={project.github_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  GitHub
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Description */}
+            <div className="relative">
+              <p
+                className={`text-black dark:text-my-dark transition-all ${
+                  showFullDesc ? "h-auto" : "h-24 overflow-hidden"
+                }`}
+              >
+                {project.description}
+              </p>
+              {!showFullDesc && (
+                <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-[#F3F4F6] dark:from-my-bg to-transparent"></div>
+              )}
+              <button
+                onClick={() => setShowFullDesc(!showFullDesc)}
+                className="text-blue-500 mt-2"
+              >
+                {showFullDesc ? "Show Less" : "Read More"}
+              </button>
+            </div>
+
+            {/* Links with Icons */}
+            <div className="flex space-x-4">
+              <a
+                href={project.live_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                <FaExternalLinkAlt className="mr-2" />
+                Live Demo
+              </a>
+              <a
+                href={project.github_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
+              >
+                <FaGithub className="mr-2" />
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

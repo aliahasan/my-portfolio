@@ -5,7 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects | Portfolio",
-  description: "Explore my latest projects built with modern technologies.",
+  description:
+    "Discover my latest projects, built with cutting-edge technologies such as React, Next.js, Node.js, and more. Explore my journey in web development.",
 };
 
 const ProjectsPage = async () => {
@@ -18,23 +19,49 @@ const ProjectsPage = async () => {
   const projectsData = await response.json();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#030712] text-gray-900 dark:text-gray-200 transition-colors duration-300">
-      {/* Header Section */}
-      <section className="py-12 text-center">
-        <h1 className="text-4xl font-bold">My Projects</h1>
-        <p className="mt-2 text-lg text-my-light  dark:text-my-dark">
-          Here are some of the projects I have built with modern technologies.
-        </p>
+    <div className="transition-colors duration-300">
+      {/* Hero Section */}
+      <section className="pt-10 text-center ">
+        <div className="max-w-3xl mx-auto px-4">
+          <h1 className="text-5xl font-bold text-my-light dark:text-my-dark">
+            My Projects
+          </h1>
+          <p className="mt-4 text-lg text-my-light dark:text-my-dark">
+            Explore a collection of my personal and professional projects,
+            showcasing my expertise in front-end and full-stack development.
+          </p>
+          <p className="text-center text-lg text-my-light  dark:text-my-dark mt-2">
+            A collection of my completed projects, demonstrating my skills in
+            building scalable and efficient applications.
+          </p>
+        </div>
       </section>
+
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projectsData?.data?.map((project: TProject) => (
-          <ProjectCard key={project._id} project={project} />
-        ))}
-      </div>
+      <section className="max-w-7xl mx-auto ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+          {projectsData?.data?.map((project: TProject) => (
+            <ProjectCard key={project._id} project={project} />
+          ))}
+        </div>
+      </section>
+
       {/* About My Projects Section */}
-      <section className="py-12 text-center mt-12">
-        <AboutMyProject />
+      <section className="dark:bg-my-bg my-10 rounded-md bg-[#F3F4F6] py-16  text-center">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-semibold text-my-light dark:text-my-dark">
+            About My Projects
+          </h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mt-4">
+            My projects range from simple UI components to full-fledged web
+            applications, including e-commerce platforms, SaaS products, and
+            custom admin dashboards. I constantly improve my skills and
+            integrate the latest trends in web development.
+          </p>
+        </div>
+        <div className="mt-8">
+          <AboutMyProject />
+        </div>
       </section>
     </div>
   );

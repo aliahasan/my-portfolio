@@ -3,7 +3,9 @@ import { FaExternalLinkAlt, FaGithub, FaLaptopCode } from "react-icons/fa";
 const AboutMyProject = () => {
   return (
     <div>
-      <h2 className="text-3xl font-semibold">Why These Projects?</h2>
+      <h2 className="text-3xl font-semibold text-my-light dark:text-my-dark">
+        Why These Projects?
+      </h2>
       <p className="mt-2 text-gray-600 dark:text-gray-400 px-6 sm:px-16 lg:px-32">
         These projects demonstrate my expertise in **React.js, Next.js, MongoDB,
         Express.js**, and modern UI frameworks like **Tailwind CSS & ShadCN**.

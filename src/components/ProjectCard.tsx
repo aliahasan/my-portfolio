@@ -1,7 +1,17 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { TProject } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 type ProjectCardProps = {
   project: TProject;
@@ -9,55 +19,48 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div>
-      <div
-        key={project._id}
-        className="bg-[#F3F4F6] dark:bg-my-bg rounded-lg shadow-md p-4 hover:scale-105 transition-transform duration-300"
-      >
-        <Image
-          src={project?.image_url}
-          alt="project image"
-          width={400}
-          height={250}
-          className="rounded-lg object-cover w-full h-40"
-        />
-        <h3 className="text-xl font-semibold mt-4">{project?.name}</h3>
-        <p className="text-sm text-my-light dark:text-my-dark mt-2">
-          {project?.description}
-        </p>
-
-        {/* Technologies Used */}
-        <div className="flex flex-wrap gap-2 mt-3">
+    <Card className="hover:shadow-sm transition-shadow bg-[#F3F4F6] dark:bg-my-bg duration-300">
+      <CardHeader>
+        <div className="relative w-full h-56 overflow-hidden">
+          <Image
+            src={project?.image_url}
+            alt="project image"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <CardTitle className="text-2xl font-bold">{project?.name}</CardTitle>
+        <CardDescription className="text-sm text-gray-600 dark:text-gray-400">
+          {project?.description?.length > 100
+            ? `${project.description.slice(0, 100)}...`
+            : project.description}
+        </CardDescription>
+        <div className="flex flex-wrap gap-2">
           {project?.technologies?.map((tech: string, index: number) => (
-            <span
-              key={index}
-              className="bg-gray-300 dark:bg-my-light text-sm px-2 py-1 rounded-md"
-            >
+            <Badge key={index} variant="outline">
               {tech}
-            </span>
+            </Badge>
           ))}
         </div>
-
-        {/* Links */}
-        <div className="flex items-center justify-between mt-4">
-          <Link href={project?.live_url}>
-            <div className="flex items-center gap-2 text-blue-500 hover:text-blue-700 dark:hover:text-blue-300">
-              <FaExternalLinkAlt /> Live Demo
-            </div>
+      </CardContent>
+      <CardFooter className="flex sm:flex-row justify-between gap-x-4">
+        <Button asChild variant="outline" className="w-full sm:w-auto">
+          <Link href={project?.live_url} className="flex items-center gap-2">
+            <FaExternalLinkAlt /> Live Demo
           </Link>
-          <Link href={`/projects/${project._id}`}>
-            <div className="flex items-center gap-2 text-blue-500 hover:text-blue-700 dark:hover:text-blue-300">
-              <FaExternalLinkAlt /> View Details
-            </div>
+        </Button>
+        <Button asChild variant="outline" className="w-full sm:w-auto">
+          <Link
+            href={`/projects/${project._id}`}
+            className="flex items-center gap-2"
+          >
+            <FaExternalLinkAlt /> View Details
           </Link>
-          <Link href={project?.github_url}>
-            <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              <FaGithub /> GitHub
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };
 
