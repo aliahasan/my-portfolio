@@ -37,7 +37,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-white/80 shadow-sm backdrop-blur-lg transition-colors duration-300 dark:bg-[#030712] px-2">
-      <div className="container mx-auto">
+      <div className="max-w-screen-xl mx-auto">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
@@ -45,7 +45,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
             className="text-xl font-bold text-gray-900 transition-transform hover:scale-105 dark:text-white"
           >
             <span className="text-black dark:text-white pl-2 lg:pl-0">
-              Web Dev
+              WebDev
             </span>
           </Link>
 

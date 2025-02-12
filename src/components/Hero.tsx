@@ -21,7 +21,7 @@ const Hero = () => {
             <motion.h1
               initial={{ y: 20 }}
               animate={{ y: 0 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
+              className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
             >
               Hi, I am Ali Ahasan Nabin
             </motion.h1>

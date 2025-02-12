@@ -11,7 +11,7 @@ const CommonLayout = async ({ children }: { children: ReactNode }) => {
       <header className="sticky top-0 z-50">
         <Navbar session={session} />
       </header>
-      <main className="min-h-screen max-w-screen-2xl mx-auto px-2">
+      <main className="min-h-screen max-w-screen-xl mx-auto px-2">
         {children}
       </main>
       <footer className=" mx-auto">
