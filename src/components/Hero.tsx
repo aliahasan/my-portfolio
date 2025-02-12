@@ -1,3 +1,4 @@
+// components/Hero.js
 "use client";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
@@ -38,7 +39,7 @@ const Hero = () => {
             </motion.h1>
 
             {/* Animated Text Word by Word */}
-            <h2 className="text-2xl sm:text-3xl mb-6 font-semibold text-my-light dark:text-my-dark flex gap-2">
+            <h2 className="text-2xl sm:text-3xl mb-6 font-semibold text-center md:text-left">
               {words.map((word, index) => (
                 <motion.span
                   key={index}
@@ -46,14 +47,16 @@ const Hero = () => {
                   initial="hidden"
                   animate="visible"
                   variants={textVariants}
-                  className="inline-block"
+                  className="inline-block bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
                 >
                   {word}
+                  {index < words.length - 1 && " "}{" "}
+                  {/* Add space between words */}
                 </motion.span>
               ))}
             </h2>
 
-            <p className="dark:text-my-dark text-my-light text-base sm:text-lg mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg mb-8 leading-relaxed text-center md:text-left">
               Building digital experiences that matter. Full-stack developer
               specializing in modern web applications with MongoDB, Express.js,
               React, Next.js, and Node.js. Turning ideas into scalable and
@@ -80,7 +83,7 @@ const Hero = () => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="sm:w-auto border border-blue-600 text-my-light dark:text-my-dark hover:bg-blue-600/10 px-8 py-3 rounded-lg transition-colors duration-300"
+                  className="sm:w-auto border border-blue-600 text-blue-600 hover:bg-blue-600/10 px-8 py-3 rounded-lg transition-colors duration-300"
                 >
                   View Projects
                 </motion.div>
