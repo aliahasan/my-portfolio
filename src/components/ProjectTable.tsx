@@ -16,10 +16,10 @@ const ProjectTable = ({ project }: { project: TProject }) => {
     try {
       const res = await deleteProject(id);
       if (res?.success) {
-        toast.success("Blog deleted successfully");
+        toast.success("Project deleted successfully");
       }
     } catch (error) {
-      toast.error("Failed to delete blog");
+      toast.error("Failed to delete project");
     }
   };
   return (

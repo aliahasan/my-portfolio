@@ -8,7 +8,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { authOptions } from "@/utils/authOptions";
+import { Metadata } from "next";
 import { getServerSession } from "next-auth";
+
+export const metadata: Metadata = {
+  title: "Dashboard |  Portfolio",
+  description: "Welcome to your dashboard, where you can manage your portfolio",
+};
 
 const DashboardPage = async () => {
   const session = await getServerSession(authOptions);
