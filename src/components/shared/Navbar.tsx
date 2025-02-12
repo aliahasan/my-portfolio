@@ -56,7 +56,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`relative text-lg font-medium transition-all duration-300 ${
+                    className={`relative text-md font-medium transition-all duration-300 ${
                       pathname === link.href
                         ? "text-blue-600 dark:text-blue-400"
                         : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"

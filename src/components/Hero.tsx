@@ -6,7 +6,18 @@ import Link from "next/link";
 import profile from "../assets/profile.png";
 import SocialIcons from "./SocialIcons";
 
+const textVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.5 },
+  }),
+};
+
 const Hero = () => {
+  const words = ["MERN", "Stack", "Developer"];
+
   return (
     <section>
       <section className="flex py-10 md:py-20 items-center justify-center">
@@ -26,8 +37,20 @@ const Hero = () => {
               Hi, I am Ali Ahasan Nabin
             </motion.h1>
 
-            <h2 className="text-2xl sm:text-3xl mb-6 text-my-light dark:text-my-dark">
-              MERN Stack Developer
+            {/* Animated Text Word by Word */}
+            <h2 className="text-2xl sm:text-3xl mb-6 font-semibold text-my-light dark:text-my-dark flex gap-2">
+              {words.map((word, index) => (
+                <motion.span
+                  key={index}
+                  custom={index}
+                  initial="hidden"
+                  animate="visible"
+                  variants={textVariants}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
+              ))}
             </h2>
 
             <p className="dark:text-my-dark text-my-light text-base sm:text-lg mb-8 leading-relaxed">
