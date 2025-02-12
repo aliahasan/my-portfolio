@@ -7,6 +7,7 @@ type PTextareaProps = {
   disabled?: boolean;
   label?: string;
   defaultValue?: string;
+  required?: boolean;
 };
 
 const PTextarea = ({
@@ -15,6 +16,7 @@ const PTextarea = ({
   disabled,
   label,
   defaultValue,
+  required,
 }: PTextareaProps) => {
   const { control } = useFormContext();
   return (
@@ -36,6 +38,7 @@ const PTextarea = ({
             {...field}
             placeholder={placeholder}
             id={name}
+            required={required}
             disabled={disabled}
             className="w-full p-3 border border-gray-300 rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />

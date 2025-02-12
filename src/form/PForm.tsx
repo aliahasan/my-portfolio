@@ -16,6 +16,7 @@ const PForm = ({ onSubmit, children }: TFormProps) => {
   const methods = useForm();
   const submit: SubmitHandler<FieldValues> = (data) => {
     onSubmit(data);
+    methods.reset();
   };
   return (
     <FormProvider {...methods}>

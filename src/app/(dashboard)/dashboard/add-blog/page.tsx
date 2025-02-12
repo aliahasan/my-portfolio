@@ -46,6 +46,7 @@ const AddBlog = () => {
         <h2 className="text-2xl font-bold text-center text-black dark:text-white mb-6">
           Add a New Blog
         </h2>
+
         <PForm onSubmit={handleSubmit}>
           <PInput
             name="title"

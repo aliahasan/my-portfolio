@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         />
         <h3 className="text-xl font-semibold mt-4">{project?.name}</h3>
         <p className="text-sm text-my-light dark:text-my-dark mt-2">
-          {project.description}
+          {project?.description}
         </p>
 
         {/* Technologies Used */}
@@ -40,7 +40,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Links */}
         <div className="flex items-center justify-between mt-4">
-          <Link href={project.live_url}>
+          <Link href={project?.live_url}>
             <div className="flex items-center gap-2 text-blue-500 hover:text-blue-700 dark:hover:text-blue-300">
               <FaExternalLinkAlt /> Live Demo
             </div>
@@ -50,7 +50,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               <FaExternalLinkAlt /> View Details
             </div>
           </Link>
-          <Link href={project.github_url}>
+          <Link href={project?.github_url}>
             <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               <FaGithub /> GitHub
             </div>

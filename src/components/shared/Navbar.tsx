@@ -79,7 +79,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                 src={session?.user?.image as string}
                 width={40}
                 height={20}
-                alt={session?.user?.name as string}
+                alt={"name"}
                 className="rounded-full"
               />
             )}

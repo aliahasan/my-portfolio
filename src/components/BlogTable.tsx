@@ -4,6 +4,7 @@ import { deleteBlog } from "@/actions/blogs/blogs";
 import { TBlog } from "@/types";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { DeleteAlertDialog } from "./DeleteAlertDialog";
 import { Button } from "./ui/button";
 import { TableCell, TableRow } from "./ui/table";
@@ -41,19 +42,28 @@ const BlogTable = ({ blog }: { blog: TBlog }) => {
 
       <TableCell>
         <div className="flex flex-col sm:flex-row gap-2">
-          <DeleteAlertDialog onConfirm={() => handleDelete(blog._id)}>
+          {/* Delete Button with Alert Dialog */}
+          <DeleteAlertDialog
+            text="blog"
+            onConfirm={() => handleDelete(blog._id)}
+          >
             <Button
               variant="destructive"
               size="sm"
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto flex items-center gap-1"
             >
-              Delete
+              <FaTrash className="text-sm" /> <span>Delete</span>
             </Button>
           </DeleteAlertDialog>
 
+          {/* Update Button */}
           <UpdateDialog blog={blog}>
-            <Button variant="default" size="sm" className="w-full sm:w-auto">
-              Update
+            <Button
+              variant="default"
+              size="sm"
+              className="w-full sm:w-auto flex items-center gap-1"
+            >
+              <FaEdit className="text-sm" /> <span>Update</span>
             </Button>
           </UpdateDialog>
         </div>

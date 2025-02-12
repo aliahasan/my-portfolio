@@ -63,7 +63,7 @@ const BlogDetails = async ({
               Ali Ahasan Nabin
             </CardTitle>
             <CardDescription className="text-sm text-gray-500 dark:text-gray-400">
-              {new Date(blog.createdAt).toLocaleDateString("en-US", {
+              {new Date(blog?.createdAt).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -76,8 +76,8 @@ const BlogDetails = async ({
 
         <div className="relative w-full h-96">
           <Image
-            src={blog.image}
-            alt={blog.title}
+            src={blog?.image}
+            alt={blog?.title}
             layout="fill"
             objectFit="cover"
             className=""
@@ -86,9 +86,9 @@ const BlogDetails = async ({
 
         {/* Blog Content */}
         <CardContent className="p-6">
-          <h1 className="text-2xl font-bold mb-4">{blog.title}</h1>
+          <h1 className="text-2xl font-bold mb-4">{blog?.title}</h1>
           <div className="prose dark:prose-invert max-w-none">
-            <p className="text-md leading-relaxed">{blog.content}</p>
+            <p className="text-md leading-relaxed">{blog?.content}</p>
           </div>
         </CardContent>
       </Card>

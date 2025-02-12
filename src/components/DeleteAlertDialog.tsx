@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 interface DeleteAlertDialogProps {
+  text: string;
   onConfirm: () => void;
   children: React.ReactNode;
 }
@@ -20,6 +21,7 @@ interface DeleteAlertDialogProps {
 export const DeleteAlertDialog = ({
   onConfirm,
   children,
+  text,
 }: DeleteAlertDialogProps) => {
   return (
     <AlertDialog>
@@ -28,7 +30,8 @@ export const DeleteAlertDialog = ({
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete the blog.
+            This action cannot be undone. This will permanently delete the{" "}
+            {text}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
