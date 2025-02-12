@@ -3,6 +3,7 @@ import Sidebar from "@/components/shared/Sidebar";
 import { ToggleTheme } from "@/components/shared/ToggleTheme";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -12,7 +13,9 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex flex-col">
       {/* Navbar */}
       <nav className="sticky top-0 bg-white dark:bg-my-side w-full  z-50 shadow-sm p-4 flex justify-between items-center border-b">
-        <h1 className="text-xl">Dashboard</h1>
+        <Link href="/dashboard">
+          <h1 className="text-xl font-medium lg:pl-4">Dashboard</h1>
+        </Link>
         <div>
           <ToggleTheme />
           <button

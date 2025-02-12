@@ -50,8 +50,8 @@ const Hero = () => {
                   className="inline-block bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
                 >
                   {word}
-                  {index < words.length - 1 && " "}{" "}
-                  {/* Add space between words */}
+                  {index < words.length - 1 && "\u00A0"}{" "}
+                  {/* Non-breaking space */}
                 </motion.span>
               ))}
             </h2>
