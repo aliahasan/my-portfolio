@@ -20,19 +20,21 @@ const ProjectsPage = async () => {
   return (
     <div className="transition-colors duration-300">
       {/* Hero Section */}
-      <section className="pt-10 text-center ">
-        <div className="max-w-3xl mx-auto px-4">
-          <h1 className="text-3xl font-bold text-black dark:text-white underline underline-offset-8">
+      <section className="pt-10">
+        <div className="">
+          <h1 className="text-3xl text-center md:text-start font-bold text-black dark:text-white underline underline-offset-8">
             My Projects
           </h1>
-          <p className="mt-4 text-lg text-my-light dark:text-my-dark">
-            Explore a collection of my personal and professional projects,
-            showcasing my expertise in front-end and full-stack development.
-          </p>
-          <p className="text-center text-lg text-my-light  dark:text-my-dark mt-2">
-            A collection of my completed projects, demonstrating my skills in
-            building scalable and efficient applications.
-          </p>
+          <div className="text-center md:text-start">
+            <p className="mt-4 text-lg text-my-light dark:text-my-dark">
+              Explore a collection of my personal and professional projects,
+              showcasing my expertise in front-end and full-stack development.
+            </p>
+            <p className="text-lg text-my-light  dark:text-my-dark mt-2">
+              A collection of my completed projects, demonstrating my skills in
+              building scalable and efficient applications.
+            </p>
+          </div>
         </div>
       </section>
 

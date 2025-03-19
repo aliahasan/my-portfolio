@@ -27,7 +27,7 @@ const Skills = () => {
     <section className="py-12 lg:py-20">
       <div>
         {/* Section Title */}
-        <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white mb-10 underline underline-offset-8">
+        <h2 className="text-3xl text-center md:text-start font-bold text-gray-900 dark:text-white mb-10 underline underline-offset-8">
           My Skills
         </h2>
 

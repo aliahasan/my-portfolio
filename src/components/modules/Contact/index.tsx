@@ -5,7 +5,7 @@ const ContactWithMe = () => {
   return (
     <div className="my-20">
       <div>
-        <h3 className="text-center text-3xl font-bold py-8 underline underline-offset-8">
+        <h3 className="text-3xl text-center md:text-start font-bold underline underline-offset-8 mb-10">
           Contact With me
         </h3>
       </div>
