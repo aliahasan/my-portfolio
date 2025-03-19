@@ -1,7 +1,8 @@
 import Education from "@/components/Education";
-import FeaturedProject from "@/components/FeaturedProject";
 import Hero from "@/components/Hero";
+import ContactWithMe from "@/components/modules/Contact";
 import Skills from "@/components/Skills";
+import ProjectsPage from "./projects/page";
 
 const Homepage = () => {
   return (
@@ -9,7 +10,9 @@ const Homepage = () => {
       <Hero />
       <Education />
       <Skills />
-      <FeaturedProject />
+      {/* <FeaturedProject /> */}
+      <ProjectsPage />
+      <ContactWithMe />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 // Updated metadata with a more detailed title and description
 export const metadata: Metadata = {
-  title: "Blogs | Portfolio",
+  title: "Nabin's | Blogs",
   description:
     "Explore insightful articles on programming, technology, quantum computing, and much more. Stay updated with the latest trends in the tech world.",
 };
@@ -42,14 +42,6 @@ const BlogsPage = async () => {
 
       {/* New section for featured blog */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-semibold ext-my-light text-my-light  dark:text-my-dark mb-4">
-          Featured Blog
-        </h2>
-        <p className="text-lg text-my-light dark:text-my-dark">
-          Check out the latest featured blog that covers a deep dive into the
-          future of quantum computing and its implications for the tech
-          industry.
-        </p>
         <div className="mt-6">
           {/* Add your BlogCard component here for featured content */}
         </div>

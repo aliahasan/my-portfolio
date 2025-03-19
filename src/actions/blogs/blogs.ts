@@ -16,6 +16,14 @@ export const createBlog = async (data: any) => {
   return blogInfo;
 };
 
+export const getAllBlogs = async () => {
+  const res = await fetch(`${backendUrl}/blog/blogs`, {
+    cache: "no-store",
+  });
+  const blogData = await res.json();
+  return blogData;
+};
+
 export const deleteBlog = async (id: string) => {
   const res = await fetch(`${backendUrl}/blog/delete/${id}`, {
     method: "DELETE",
@@ -38,7 +46,6 @@ export const updateBlog = async (data: any) => {
     body: JSON.stringify(rest),
   });
   const result = await response.json();
-  console.log(result);
   revalidateTag("blogs");
   return result;
 };

@@ -1,4 +1,4 @@
-import { FaExternalLinkAlt, FaGithub, FaLaptopCode } from "react-icons/fa";
+import { FaExternalLinkAlt, FaLaptopCode } from "react-icons/fa";
 
 const AboutMyProject = () => {
   return (
@@ -15,10 +15,10 @@ const AboutMyProject = () => {
           <FaLaptopCode className="text-blue-500 text-3xl" />
           <span>Modern Web Development</span>
         </div>
-        <div className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md">
+        {/* <div className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md">
           <FaGithub className="text-gray-700 dark:text-gray-300 text-3xl" />
           <span>Open Source Contributions</span>
-        </div>
+        </div> */}
         <div className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md">
           <FaExternalLinkAlt className="text-green-500 text-3xl" />
           <span>Live Deployed Apps</span>

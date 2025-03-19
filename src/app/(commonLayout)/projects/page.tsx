@@ -1,10 +1,9 @@
-import AboutMyProject from "@/components/AboutMyProject";
 import ProjectCard from "@/components/ProjectCard";
 import { TProject } from "@/types";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects | Portfolio",
+  title: "Nabin's | Projects",
   description:
     "Discover my latest projects, built with cutting-edge technologies such as React, Next.js, Node.js, and more. Explore my journey in web development.",
 };
@@ -23,7 +22,7 @@ const ProjectsPage = async () => {
       {/* Hero Section */}
       <section className="pt-10 text-center ">
         <div className="max-w-3xl mx-auto px-4">
-          <h1 className="text-5xl font-bold text-my-light dark:text-my-dark">
+          <h1 className="text-3xl font-bold text-black dark:text-white underline underline-offset-8">
             My Projects
           </h1>
           <p className="mt-4 text-lg text-my-light dark:text-my-dark">
@@ -47,7 +46,7 @@ const ProjectsPage = async () => {
       </section>
 
       {/* About My Projects Section */}
-      <section className="dark:bg-my-bg my-10 rounded-md bg-[#F3F4F6] py-16  text-center">
+      {/* <section className="dark:bg-my-bg my-10 rounded-md bg-[#F3F4F6] py-16  text-center">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl font-semibold text-my-light dark:text-my-dark">
             About My Projects
@@ -62,7 +61,7 @@ const ProjectsPage = async () => {
         <div className="mt-8">
           <AboutMyProject />
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -34,11 +34,8 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-lg shadow-sm rounded-lg bg-[#F3F4F6]  transition-colors duration-300 dark:bg-my-bg">
+    <Card className="w-full  shadow-sm rounded-lg bg-[#F3F4F6]  transition-colors duration-300 dark:bg-my-bg">
       <CardContent className="p-6">
-        <h2 className="text-2xl font-semibold text-black dark:text-white text-center">
-          Contact with Me
-        </h2>
         <PForm onSubmit={handleSubmit}>
           <PInput
             type="text"
@@ -62,12 +59,12 @@ const ContactForm = () => {
           />
           <button
             type="submit"
-            className={`w-full p-2 mt-4 rounded-md bg-blue-500 text-white ${
+            className={`w-full  p-2 mt-4 rounded-md bg-blue-500 text-white ${
               loading ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={loading}
           >
-            {loading ? "Sending..." : "Submit"}
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </PForm>
       </CardContent>

@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import profile from "../assets/profile.png";
-import SocialIcons from "./SocialIcons";
 
 const textVariants = {
   hidden: { opacity: 0, y: 10 },
@@ -57,7 +55,7 @@ const Hero = () => {
             </h2>
 
             <p className="text-base sm:text-lg mb-8 leading-relaxed text-center md:text-left">
-              Building digital experiences that matter. Full-stack developer
+              Building digital experiences that matter. Mern-stack developer
               specializing in modern web applications with MongoDB, Express.js,
               React, Next.js, and Node.js. Turning ideas into scalable and
               efficient solutions.
@@ -73,25 +71,11 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="sm:w-auto bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors duration-300 inline-flex items-center px-8 md:px-4 lg:px-8"
               >
-                Get Resume
+                Download Resume
                 <span className="pl-2">
                   <Download />
                 </span>
               </motion.a>
-
-              <Link href="/projects">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="sm:w-auto border border-blue-600 text-blue-600 hover:bg-blue-600/10 px-8 py-3 rounded-lg transition-colors duration-300"
-                >
-                  View Projects
-                </motion.div>
-              </Link>
-            </div>
-
-            <div className="py-6">
-              <SocialIcons />
             </div>
           </motion.div>
 

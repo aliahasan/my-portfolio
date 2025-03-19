@@ -94,7 +94,7 @@ const LoginPage = () => {
                 onClick={() =>
                   signIn("google", {
                     callbackUrl:
-                      "https://my-portfolio-weld-omega-69.vercel.app/dashboard",
+                      "http://my-portfolio-weld-omega-69.vercel.app/dashboard",
                   })
                 }
                 variant="default"

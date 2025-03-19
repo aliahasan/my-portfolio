@@ -19,7 +19,7 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <Card className="hover:shadow-sm transition-shadow bg-[#F3F4F6] dark:bg-my-bg duration-300">
+    <Card className="hover:shadow-sm  transition-shadow bg-[#F3F4F6] dark:bg-my-bg duration-300">
       <CardHeader>
         <div className="relative w-full h-56 overflow-hidden">
           <Image
@@ -30,7 +30,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           />
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 ">
         <CardTitle className="text-2xl font-bold">{project?.name}</CardTitle>
         <CardDescription className="text-sm text-gray-600 dark:text-gray-400">
           {project?.description?.length > 100

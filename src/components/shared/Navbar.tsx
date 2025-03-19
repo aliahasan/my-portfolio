@@ -21,9 +21,8 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
 
   const links = [
     { label: "Home", href: "/" },
-    { label: "Projects", href: "/projects" },
     { label: "Blogs", href: "/blogs" },
-    { label: "Contact", href: "/contact" },
+    { label: "Projects", href: "/projects" },
   ];
 
   // Add Dashboard link only if the user is logged in
@@ -45,7 +44,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
             className="text-xl font-bold text-gray-900 transition-transform hover:scale-105 dark:text-white"
           >
             <span className="text-black dark:text-white pl-2 lg:pl-0">
-              WebDev
+              NABIN.
             </span>
           </Link>
 

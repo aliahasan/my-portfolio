@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +13,7 @@ const Footer = () => {
         {/* Social Links */}
         <div className="flex space-x-6 text-xl">
           <Link
-            href="https://facebook.com/"
+            href="https://www.facebook.com/aliahasan.nabin"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition duration-300"
@@ -21,7 +21,7 @@ const Footer = () => {
             <FaFacebook />
           </Link>
           <Link
-            href="https://github.com/"
+            href="https://github.com/aliahasan"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-400 transition duration-300"
@@ -29,7 +29,7 @@ const Footer = () => {
             <FaGithub />
           </Link>
           <Link
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/ali-ahasan-nabin-47861122a"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400 transition duration-300"
@@ -37,12 +37,12 @@ const Footer = () => {
             <FaLinkedin />
           </Link>
           <Link
-            href="https://instagram.com/"
+            href="https://x.com/ahasan_nabin"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-500 transition duration-300"
           >
-            <FaInstagram />
+            <FaTwitter />
           </Link>
         </div>
 

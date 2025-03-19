@@ -1,4 +1,3 @@
-// components/Education.js
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -35,7 +34,9 @@ export default function Education() {
       transition={{ duration: 0.5 }}
       className="py-6"
     >
-      <h2 className="text-2xl font-bold mb-6 text-center ">Education</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center underline underline-offset-8">
+        Education
+      </h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 ">
         {educationData.map((edu, index) => (
           <Card
