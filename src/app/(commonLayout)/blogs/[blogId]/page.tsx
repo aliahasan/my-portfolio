@@ -1,3 +1,5 @@
+import { getAllBlogs } from "@/actions/blogs/blogs";
+import MarkDownText from "@/components/MarkDownText";
 import {
   Card,
   CardContent,
@@ -25,15 +27,13 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/blogs`);
-  const data = await res.json();
-  const blogs: TBlog[] = data?.data || [];
-  return blogs.slice(0, 2).map((blog) => ({
+  const { data: blogs } = await getAllBlogs();
+  return blogs.slice(0, 3).map((blog: TBlog) => ({
     blogId: blog._id,
   }));
 };
 
-const BlogDetails = async ({
+const BlogDetailsPage = async ({
   params,
 }: {
   params: Promise<{ blogId: string }>;
@@ -45,7 +45,7 @@ const BlogDetails = async ({
   const blog: TBlog = data?.data;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
       <Card className="dark:bg-my-bg dark:text-white shadow-sm rounded-lg">
         <CardHeader className="flex flex-row items-center space-x-4">
           <div className="w-12 h-12 rounded-full overflow-hidden">
@@ -88,7 +88,7 @@ const BlogDetails = async ({
         <CardContent className="p-6">
           <h1 className="text-2xl font-bold mb-4">{blog?.title}</h1>
           <div className="prose dark:prose-invert max-w-none">
-            <p className="text-md leading-relaxed">{blog?.content}</p>
+            <MarkDownText text={blog?.content} />
           </div>
         </CardContent>
       </Card>
@@ -96,4 +96,4 @@ const BlogDetails = async ({
   );
 };
 
-export default BlogDetails;
+export default BlogDetailsPage;

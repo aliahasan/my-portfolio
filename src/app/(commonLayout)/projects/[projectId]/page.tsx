@@ -1,3 +1,4 @@
+import MarkDownText from "@/components/MarkDownText";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -34,7 +35,7 @@ const ProjectDetailsPage = async ({
   );
 
   const data = await res.json();
-  const project = data?.data;
+  const project: TProject = data?.data;
 
   if (!project) {
     return (
@@ -58,15 +59,15 @@ const ProjectDetailsPage = async ({
       {/* Project Details */}
       <div className="mt-8 space-y-6">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          {project.name}
+          {project?.name}
         </h1>
-        <p className="text-lg text-gray-700 dark:text-gray-300">
-          {project.description}
-        </p>
+        <div className="text-md text-gray-700 dark:text-gray-300">
+          <MarkDownText text={project?.description} />
+        </div>
 
         {/* Technologies Used */}
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech: string, index: number) => (
+          {project?.technologies?.map((tech: string, index: number) => (
             <Badge
               key={index}
               className="bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white"
@@ -92,11 +93,20 @@ const ProjectDetailsPage = async ({
           </Button>
           <Button asChild variant="outline" className="flex items-center gap-2">
             <a
-              href={project.github_url}
+              href={project?.github_url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub /> GitHub
+              <FaGithub /> GitHub Client Code
+            </a>
+          </Button>
+          <Button asChild variant="outline" className="flex items-center gap-2">
+            <a
+              href={project?.github_url_server}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub /> GitHub Server Code
             </a>
           </Button>
         </div>
@@ -105,15 +115,15 @@ const ProjectDetailsPage = async ({
         <Card className="mt-6 dark:bg-my-bg">
           <CardContent className="py-5">
             <p className="text-sm text-my-light dark:text-my-dark">
-              <strong>Project ID:</strong> {project._id}
+              <strong>Project ID:</strong> {project?._id}
             </p>
             <p className="text-sm text-my-light dark:text-my-dark">
               <strong>Created At:</strong>{" "}
-              {new Date(project.createdAt).toLocaleDateString()}
+              {new Date(project?.createdAt).toLocaleDateString()}
             </p>
             <p className="text-sm text-my-light dark:text-my-dark">
               <strong>Last Updated:</strong>{" "}
-              {new Date(project.updatedAt).toLocaleDateString()}
+              {new Date(project?.updatedAt).toLocaleDateString()}
             </p>
           </CardContent>
         </Card>

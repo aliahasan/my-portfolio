@@ -1,12 +1,12 @@
 export type TProject = {
+  _id: string;
   name: string;
-  createdAt: string;
-  description: string;
-  github_url: string;
   image_url: string;
   live_url: string;
+  github_url: string;
+  github_url_server: string;
+  description: string;
   technologies: string[];
+  createdAt: string;
   updatedAt: string;
-  __v: number;
-  _id: string;
 };

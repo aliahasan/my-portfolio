@@ -1,4 +1,5 @@
 import Education from "@/components/Education";
+import FeaturedBlog from "@/components/FeaturedBlog";
 import Hero from "@/components/Hero";
 import ContactWithMe from "@/components/modules/Contact";
 import Skills from "@/components/Skills";
@@ -10,8 +11,8 @@ const Homepage = () => {
       <Hero />
       <Education />
       <Skills />
-      {/* <FeaturedProject /> */}
       <ProjectsPage />
+      <FeaturedBlog />
       <ContactWithMe />
     </div>
   );

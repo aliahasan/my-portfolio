@@ -46,24 +46,6 @@ const ProjectsPage = async () => {
           ))}
         </div>
       </section>
-
-      {/* About My Projects Section */}
-      {/* <section className="dark:bg-my-bg my-10 rounded-md bg-[#F3F4F6] py-16  text-center">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-my-light dark:text-my-dark">
-            About My Projects
-          </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mt-4">
-            My projects range from simple UI components to full-fledged web
-            applications, including e-commerce platforms, SaaS products, and
-            custom admin dashboards. I constantly improve my skills and
-            integrate the latest trends in web development.
-          </p>
-        </div>
-        <div className="mt-8">
-          <AboutMyProject />
-        </div>
-      </section> */}
     </div>
   );
 };

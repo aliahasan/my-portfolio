@@ -1,3 +1,4 @@
+import { getAllBlogs } from "@/actions/blogs/blogs";
 import BlogCard from "@/components/BlogCard";
 import { TBlog } from "@/types";
 import { Metadata } from "next";
@@ -10,13 +11,9 @@ export const metadata: Metadata = {
 };
 
 const BlogsPage = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/blogs`, {
-    cache: "no-store",
-  });
-  const data = await res.json();
-  const blogs = data?.data;
+  const { data: blogs } = await getAllBlogs();
 
-  if (!blogs)
+  if (!blogs || blogs?.length < 0)
     return (
       <div className="flex justify-center items-center h-screen">
         <h1 className="text-2xl text-red-600 font-bold">No blogs found</h1>

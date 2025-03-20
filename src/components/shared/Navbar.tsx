@@ -1,21 +1,11 @@
 "use client";
 import { Menu, X } from "lucide-react";
-import { signOut } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ToggleTheme } from "./ToggleTheme";
 
-type UserProps = {
-  user?: {
-    name?: string | null | undefined;
-    email?: string | null | undefined;
-    image?: string | null | undefined;
-  };
-};
-
-const Navbar = ({ session }: { session: UserProps | null }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -25,18 +15,13 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
     { label: "Projects", href: "/projects" },
   ];
 
-  // Add Dashboard link only if the user is logged in
-  if (session?.user) {
-    links.push({ label: "Dashboard", href: "/dashboard" });
-  }
-
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white/80 shadow-sm backdrop-blur-lg transition-colors duration-300 dark:bg-[#030712] px-2">
-      <div className="max-w-screen-xl mx-auto">
+    <nav className="sticky top-0 z-50 w-full border-b bg-white/80 shadow-sm backdrop-blur-lg transition-colors duration-300 dark:bg-[#030712] ">
+      <div className="max-w-screen-xl mx-auto md:px-2">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
@@ -73,37 +58,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
 
           {/* Toggle Theme, Login/Logout Button, and Mobile Menu Button */}
           <div className="flex items-center gap-4">
-            {session?.user && (
-              <Image
-                src={
-                  (session?.user?.image as string) ||
-                  "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"
-                }
-                width={40}
-                height={20}
-                alt={"name"}
-                className="rounded-full"
-              />
-            )}
             <ToggleTheme />
-
-            {/* Show Login/Logout based on session */}
-            <div className="hidden md:block">
-              {session?.user ? (
-                <button
-                  onClick={() => signOut()}
-                  className="px-4 py-2 bg-gray-200 shadow-sm rounded-lg text-black "
-                >
-                  Logout
-                </button>
-              ) : (
-                <Link href="/login">
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                    Login
-                  </button>
-                </Link>
-              )}
-            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -139,22 +94,6 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
             {link.label}
           </Link>
         ))}
-        <div className=" md:hidden text-center">
-          {session?.user ? (
-            <button
-              onClick={() => signOut()}
-              className="px-4 py-2 bg-gray-100 shadow-sm rounded-lg text-black "
-            >
-              Logout
-            </button>
-          ) : (
-            <Link href="/login">
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                Login
-              </button>
-            </Link>
-          )}
-        </div>
       </div>
     </nav>
   );

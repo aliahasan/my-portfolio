@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -26,17 +25,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             src={project?.image_url}
             alt="project image"
             fill
-            className="object-cover"
+            className="object-cover rounded-lg"
           />
         </div>
       </CardHeader>
       <CardContent className="space-y-4 ">
         <CardTitle className="text-2xl font-bold">{project?.name}</CardTitle>
-        <CardDescription className="text-sm text-gray-600 dark:text-gray-400">
-          {project?.description?.length > 100
-            ? `${project.description.slice(0, 100)}...`
-            : project.description}
-        </CardDescription>
         <div className="flex flex-wrap gap-2">
           {project?.technologies?.map((tech: string, index: number) => (
             <Badge key={index} variant="outline">

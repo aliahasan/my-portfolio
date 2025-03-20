@@ -5,17 +5,17 @@ import { FaCalendar } from "react-icons/fa";
 
 const BlogCard = ({ blog }: { blog: TBlog }) => {
   return (
-    <div className="w-full bg-white dark:bg-my-bg shadow-md rounded-lg overflow-hidden">
+    <div className="w-full p-6 bg-white dark:bg-my-bg shadow-md rounded-xl overflow-hidden">
       <figure>
         <Image
           src={blog.image}
           width={600}
           height={100}
           alt="blog image"
-          className="rounded-t-lg h-64 object-cover"
+          className=" h-64 rounded-lg object-cover"
         />
       </figure>
-      <div className="p-6">
+      <div className="pt-6">
         <p className="flex items-center justify-center text-teal-600 bg-teal-100 w-32 rounded-full py-1 text-sm">
           <FaCalendar className="mr-2" />
           {new Date(blog.createdAt).toLocaleDateString()}
