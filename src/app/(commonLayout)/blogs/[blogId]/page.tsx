@@ -28,7 +28,7 @@ export async function generateMetadata({
 
 export const generateStaticParams = async () => {
   const { data: blogs } = await getAllBlogs();
-  return blogs.slice(0, 3).map((blog: TBlog) => ({
+  return blogs?.slice(0, 3)?.map((blog: TBlog) => ({
     blogId: blog._id,
   }));
 };
@@ -40,7 +40,14 @@ const BlogDetailsPage = async ({
 }) => {
   const { blogId } = await params;
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${blogId}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${blogId}`,
+    {
+      next: {
+        revalidate: 10,
+      },
+    }
+  );
   const data = await res.json();
   const blog: TBlog = data?.data;
 

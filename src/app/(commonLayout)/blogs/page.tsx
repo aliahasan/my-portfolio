@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 
 const BlogsPage = async () => {
   const { data: blogs } = await getAllBlogs();
-
   if (!blogs || blogs?.length < 0)
     return (
       <div className="flex justify-center items-center h-screen">

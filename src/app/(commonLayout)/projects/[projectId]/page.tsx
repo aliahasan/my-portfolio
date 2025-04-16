@@ -1,3 +1,4 @@
+import { getAllProjects } from "@/actions/project/project";
 import MarkDownText from "@/components/MarkDownText";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,13 @@ export async function generateMetadata({
     description: project?.description,
   };
 }
+
+export const generateStaticParams = async () => {
+  const { data: projects } = await getAllProjects();
+  return projects?.slice(0, 3)?.map((project: TProject) => ({
+    projectId: project._id,
+  }));
+};
 
 const ProjectDetailsPage = async ({
   params,
@@ -78,7 +86,7 @@ const ProjectDetailsPage = async ({
         </div>
 
         {/* Project Links */}
-        <div className="flex gap-4 mt-4">
+        <div className="flex flex-wrap gap-4 mt-4">
           <Button
             asChild
             className="flex items-center gap-2 bg-my-bg dark:bg-white"
